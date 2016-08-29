@@ -1,0 +1,62 @@
+body {
+  font-size: 12px;
+  font-family: arial;
+}
+
+.container {
+  margin-bottom: 20px;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8ff;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  cursor: pointer;
+  background-color: #ccf;
+}
+
+th:hover {
+  background-color: #f7f7f9;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ccf;
+  margin: 0;
+}
+
+.gray-out {
+  background-color:rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dialog-box {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 400px;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.exit-btn {
+  float: right;
+}
+
+.clickable {
+  cursor: pointer;
+}

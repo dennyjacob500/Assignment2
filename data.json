@@ -1,0 +1,41 @@
+{
+  "buddies": [
+    
+    {
+      "first": "Lorem",
+      "last": "Ipsum",
+      "username": "lipsum",
+      "email": "lipsum@gmail.com",
+      "status": "available",
+      "birthday": "1980-12-25",
+      "bio": "Lorem Ipsum"
+    },
+    {
+      "first": "Dummy",
+      "last": "user",
+      "username": "dummy",
+      "email": "duser@gmail.com",
+      "status": "busy",
+      "birthday": "1982-5-25",
+      "bio": "Just a dummy user"
+    },
+    {
+      "first": "Dummy",
+      "last": "user2",
+      "username": "dummy2",
+      "email": "duser2@gmail.com",
+      "status": "idle",
+      "birthday": "1983-5-25",
+      "bio": "Dummy user 2"
+    },
+    {
+      "first": "Dummy",
+      "last": "user3",
+      "username": "dummy3",
+      "email": "duser3@gmail.com",
+      "status": "offline - last login 4/3/12 19:21:00",
+      "birthday": "1985-5-25",
+      "bio": "Dummy user 3"
+    }
+  ]
+}

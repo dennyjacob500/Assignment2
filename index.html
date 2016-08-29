@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Buddy List</title>
+    
+    <!-- Using font awesome and AngularJS -->
+    <link  rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <h2>The Buddy List</h2>
+    <div class="container">
+      
+      <button ng-click="add();">Add Buddy</button>
+      
+      <!-- Simply toggle expand boolean, listened by table cells -->
+      <button ng-click="toggleExpand();">{{expandTitle}}</button>
+    </div>
+    <p>Click a header item to sort by that property</p>
+    
+
+    <table class="container">
+      <tbody>
+        <tr>
+          
+          <th ng-click="setSort('username');">Username</th>
+          <th ng-click="setSort('first');">First</th>
+          <th ng-click="setSort('last');">Last</th>
+          <th ng-click="setSort('status');">Status</th>
+          <th ng-click="setSort('email');" ng-show="expanded">Email</th>
+          <th ng-click="setSort('birthday');" ng-show="expanded">Birthday</th>
+          <th ng-click="setSort('bio');" ng-show="expanded">Bio</th>
+          <th></th>
+        </tr>
+        
+       
+        <tr ng-repeat="buddy in buddies | orderBy: orderProp">
+          <td>{{buddy.username}}</td>
+          <td>{{buddy.first}}</td>
+          <td>{{buddy.last}}</td>
+          <td>{{buddy.status}}</td>
+          <td ng-show="expanded">{{buddy.email}}</td>
+          <td ng-show="expanded">{{buddy.birthday}}</td>
+          <td ng-show="expanded">{{buddy.bio}}</td>
+          <td>
+            <i class="fa fa-times clickable" ng-click="delete(buddy);"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <!-- Dialog box -->
+    <div class="gray-out" ng-show="confirmDelete === true || addBuddy === true">
+      <div class="dialog-box">
+        
+        <!-- X button -->
+        <i class="fa fa-times clickable exit-btn" ng-click="cancel();"></i>
+        
+        <!-- Change title depending on add/delete state -->
+        <h2>{{dialogTitle}}</h2>
+        
+        <h3 ng-show="confirmDelete === true">{{buddyToDelete.username}}</h3>
+        
+        <!-- Delete content -->
+        <div ng-show="confirmDelete === true">
+          <button ng-click="deleteClick();">Confirm</button>
+          <button ng-click="cancel();">Cancel</button>
+        </div>
+        
+        <!-- Add Buddy dialog -->
+        <div ng-show="addBuddy === true">
+          
+
+        <div class="container">
+            <div>Username</div>
+            <div>
+              <input type="text" id="username" required />
+            </div>
+          </div>
+          <div class="container">
+            <div>First Name</div>
+            <div>
+              <input type="text" id="first" />
+            </div>
+          </div>
+          <div class="container">
+            <div>Last Name</div>
+            <div>
+              <input type="text" id="last" />
+            </div>
+          </div>
+          <div class="container">
+            <div>Email</div>
+            <div>
+              <input type="text" id="email" />
+            </div>
+          </div>
+          <div class="container">
+            <div>Birthday</div>
+            <div>
+              <input type="text" id="birthday" />
+            </div>
+          </div>
+          <div class="container">
+            <div>Bio</div>
+            <div>
+              <input type="text" id="bio" />
+            </div>
+          
+        </div>
+          
+          <!-- Add/Cancel buttons -->
+          <div>
+            <button id="addBuddy" ng-click="confirmAdd();">Add</button>
+            <button ng-click="cancel();">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
