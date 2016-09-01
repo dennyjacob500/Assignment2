@@ -20,7 +20,9 @@ th {
   cursor: pointer;
   background-color: #ccf;
 }
-
+div .ng-scope{
+  color: red;
+}
 th:hover {
   background-color: #f7f7f9;
 }

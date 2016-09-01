@@ -1,4 +1,5 @@
-var app = angular.module('app', []);
+
+var app = angular.module('app', ['ngMessages']);
 
 app.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
   
