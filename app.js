@@ -1,5 +1,6 @@
 
-var app = angular.module('app', ['ngMessages']);
+
+var app = angular.module('app', []);
 
 app.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
   
@@ -75,7 +76,6 @@ app.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
   }
   
   $scope.confirmAdd = function() {
-    
     var buddy = [];
     buddy.username = $('#username').val();
     buddy.first = $('#first').val();
@@ -84,11 +84,14 @@ app.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
     buddy.birthday = $('#birthday').val();
     buddy.bio = $('#bio').val();
     buddy.status = "available";
+    if($('#username').val()=='' || $('#first').val()=='' || $('#last').val()=='' || $('#email').val()=='' || $('#birthday').val()=='' || $('#bio').val()==''){
+      $('#error').html('Please fill all the fields');
+    }else{
     
     $scope.buddies.push(buddy);
-    
     clearInputs(); 
     $scope.cancel(); 
+        }
   };
   
 }]);

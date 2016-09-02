@@ -6,11 +6,9 @@
     <title>Buddy List</title>
     
     <!-- Using font awesome and AngularJS -->
-    <link  rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
-    <!-- load ngmessages -->
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="app.js"></script>
   </head>
@@ -26,7 +24,6 @@
     </div>
     <p>Click a header item to sort by that property</p>
     
-
     <table class="container">
       <tbody>
         <tr>
@@ -41,7 +38,6 @@
           <th></th>
         </tr>
         
-       
         <tr ng-repeat="buddy in buddies | orderBy: orderProp">
           <td>{{buddy.username}}</td>
           <td>{{buddy.first}}</td>
@@ -74,75 +70,55 @@
           <button ng-click="deleteClick();">Confirm</button>
           <button ng-click="cancel();">Cancel</button>
         </div>
-      <form name="buddyForm" class="myForm" novalidate>
+        
         <!-- Add Buddy dialog -->
         <div ng-show="addBuddy === true">
-          
-
-        <div class="container">
+          <div class="container">
+            <div id="error"></div>
+          </div>
+          <div class="container">
             <div>Username</div>
             <div>
-              <input type="text" name="userName" ng-model="userName" id="username" required />
-              <div ng-messages="buddyForm.userName.$error">
-              <div ng-message="required">This field is required</div>
-              </div>
+              <input type="text" id="username" />
             </div>
           </div>
           <div class="container">
             <div>First Name</div>
             <div>
-              <input type="text" name="userFirst" ng-model="userFirst" id="first" required/>
-              <div ng-messages="buddyForm.userFirst.$error">
-              <div ng-message="required">This field is required</div>
-              </div>
+              <input type="text" id="first" />
             </div>
           </div>
           <div class="container">
             <div>Last Name</div>
             <div>
-              <input type="text" name="userLast" ng-model="userLast" id="last" required/>
-              <div ng-messages="buddyForm.userLast.$error">
-              <div ng-message="required">This field is required</div>
-              </div>
+              <input type="text" id="last" />
             </div>
           </div>
           <div class="container">
             <div>Email</div>
             <div>
-              <input type="email" name="userEmail" ng-model="userEmail" id="email" required  />
-              <div ng-messages="buddyForm.userEmail.$error">
-              <div ng-message="required">This field is required</div>
-              <div ng-message="email">Your email address is invalid</div>
-              </div>
+              <input type="email" id="email"/>
             </div>
           </div>
           <div class="container">
             <div>Birthday</div>
             <div>
-              <input type="text" name="userBirthday" ng-model="userBirthday" id="birthday" required/>
-              <div ng-messages="buddyForm.userBirthday.$error">
-              <div ng-message="required">This field is required</div>
-              </div>
+              <input type="text" id="birthday" />
             </div>
           </div>
           <div class="container">
             <div>Bio</div>
             <div>
-              <input type="text" name="userBio" ng-model="userBio" id="bio"  required/>
-              <div ng-messages="buddyForm.userBio.$error">
-              <div ng-message="required">This field is required</div>
-              </div>
+              <input type="text" id="bio" />
             </div>
-          
-        </div>
+          </div>
           
           <!-- Add/Cancel buttons -->
           <div>
-            <button id="addBuddy" ng-click="confirmAdd();">Add</button>
+            <button id ="addBuddy" ng-click="confirmAdd();">Add</button>
             <button ng-click="cancel();">Cancel</button>
           </div>
         </div>
-        </form>
       </div>
     </div>
   </body>

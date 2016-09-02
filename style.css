@@ -20,7 +20,7 @@ th {
   cursor: pointer;
   background-color: #ccf;
 }
-div .ng-scope{
+#error{
   color: red;
 }
 th:hover {
